@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 150
+/svn/baoxiao/!svn/ver/27748/trunk/presentation/App/Andriod/NewCloudRefund/trunk/NewCloudRefund/libswipeview/src/main/java/com/libswipeview/swipe/touch
+END
+DefaultItemTouchHelperCallback.java
+K 25
+svn:wc:ra_dav:version-url
+V 186
+/svn/baoxiao/!svn/ver/27748/trunk/presentation/App/Andriod/NewCloudRefund/trunk/NewCloudRefund/libswipeview/src/main/java/com/libswipeview/swipe/touch/DefaultItemTouchHelperCallback.java
+END
+DefaultItemTouchHelper.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/baoxiao/!svn/ver/27748/trunk/presentation/App/Andriod/NewCloudRefund/trunk/NewCloudRefund/libswipeview/src/main/java/com/libswipeview/swipe/touch/DefaultItemTouchHelper.java
+END
+OnItemStateChangedListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 182
+/svn/baoxiao/!svn/ver/27748/trunk/presentation/App/Andriod/NewCloudRefund/trunk/NewCloudRefund/libswipeview/src/main/java/com/libswipeview/swipe/touch/OnItemStateChangedListener.java
+END
+OnItemMoveListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 174
+/svn/baoxiao/!svn/ver/27748/trunk/presentation/App/Andriod/NewCloudRefund/trunk/NewCloudRefund/libswipeview/src/main/java/com/libswipeview/swipe/touch/OnItemMoveListener.java
+END
+OnItemMovementListener.java
+K 25
+svn:wc:ra_dav:version-url
+V 178
+/svn/baoxiao/!svn/ver/27748/trunk/presentation/App/Andriod/NewCloudRefund/trunk/NewCloudRefund/libswipeview/src/main/java/com/libswipeview/swipe/touch/OnItemMovementListener.java
+END
