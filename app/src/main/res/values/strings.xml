@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">IdlePlay</string>
+    <string name="app_name">闲玩</string>
+
+    <string name="tab_title_fund">发现</string>
+    <string name="tab_title_show">秀场</string>
+    <string name="tab_title_favorite">兴趣</string>
+    <string name="tab_mine">我</string>
+
+
 </resources>
