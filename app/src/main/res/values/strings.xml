@@ -6,5 +6,15 @@
     <string name="tab_title_favorite">兴趣</string>
     <string name="tab_mine">我</string>
 
-
+    <array name="actions_labels">
+        <item>推荐</item>
+        <item>社会</item>
+        <item>订阅</item>
+        <item>视频</item>
+        <item>健康</item>
+        <item>体育</item>
+        <item>科技</item>
+        <item>汽车</item>
+        <item>娱乐</item>
+    </array>
 </resources>

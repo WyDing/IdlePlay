@@ -1,5 +1,7 @@
 package com.iwuyou.idleplay.actions;
 
+import android.view.View;
+
 import com.iwuyou.idleplay.base.BaseFragment;
 
 /**
@@ -10,5 +12,10 @@ public class ActionCreatorFragment extends BaseFragment{
     @Override
     public int initContentViewID() {
         return 0;
+    }
+
+    @Override
+    public void init(View view) {
+
     }
 }
