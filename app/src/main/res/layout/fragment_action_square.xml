@@ -31,21 +31,26 @@
             android:scaleType="center"
             android:src="@drawable/ic_arrow_down" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="@dimen/top_category_height"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:layout_toLeftOf="@id/icon_category">
 
-            <com.iwuyou.idleplay.view.CategoryTabStrip
-                android:id="@+id/category_strip"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/top_category_height"
-                android:clipToPadding="false"
-                android:paddingLeft="6.0dip"
-                android:paddingRight="6.0dip" />
-        </LinearLayout>
+        <com.iwuyou.idleplay.view.CategoryTabStrip
+            android:id="@+id/category_strip"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/top_category_height"
+            android:layout_toLeftOf="@id/icon_category"
+            android:clipToPadding="false"
+            android:paddingLeft="6.0dip"
+            android:paddingRight="6.0dip" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:background="@drawable/ic_category_left_edge" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_toLeftOf="@id/icon_category"
+            android:background="@drawable/ic_category_right_edge" />
     </RelativeLayout>
 
     <android.support.v4.view.ViewPager

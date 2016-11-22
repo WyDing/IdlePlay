@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import com.iwuyou.idleplay.R;
 import com.iwuyou.idleplay.base.BaseFragment;
 import com.iwuyou.idleplay.view.CategoryTabStrip;
+import com.iwuyou.libmine.utils.UITools;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +28,7 @@ public class ActionSquareFragment extends BaseFragment {
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
     private PagerAdapter mAdapter;
-    private List<Pair<String,Integer>> mActionLabels;
+    private List<Pair<String, Integer>> mActionLabels;
 
     @Override
     public int initContentViewID() {
@@ -37,7 +38,7 @@ public class ActionSquareFragment extends BaseFragment {
     @Override
     public void init(View view) {
         mActionLabels = new ArrayList<>();
-        mAdapter = new PagerAdapter(getChildFragmentManager(),mActionLabels);
+        mAdapter = new PagerAdapter(getChildFragmentManager(), mActionLabels);
         String[] actionStrs = getResources().getStringArray(R.array.actions_labels);
         for (int i = 0; i < actionStrs.length; i++) {
             Pair<String, Integer> pair = new Pair<>(actionStrs[i], i);

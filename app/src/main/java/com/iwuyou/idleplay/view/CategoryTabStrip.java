@@ -19,6 +19,8 @@ import android.widget.TextView;
 
 import com.iwuyou.idleplay.R;
 
+import static com.iwuyou.libmine.utils.L.e;
+
 public class CategoryTabStrip extends HorizontalScrollView {
     private LayoutInflater mLayoutInflater;
     private final PageListener pageListener = new PageListener();
@@ -38,8 +40,9 @@ public class CategoryTabStrip extends HorizontalScrollView {
 
     private Drawable indicator;
     private TextDrawable[] drawables;
-    private Drawable left_edge;
-    private Drawable right_edge;
+
+    private static final int MAX_SCROLL = 120;
+    private static final float SCROLL_RATIO = 0.5f;// 阻尼系数
 
     public CategoryTabStrip(Context context) {
         this(context, null);
@@ -76,8 +79,6 @@ public class CategoryTabStrip extends HorizontalScrollView {
         defaultTabLayoutParams = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.MATCH_PARENT);
 
         indicator = getResources().getDrawable(R.drawable.bg_category_indicator);
-        left_edge = getResources().getDrawable(R.drawable.ic_category_left_edge);
-        right_edge = getResources().getDrawable(R.drawable.ic_category_right_edge);
     }
 
     public void setViewPager(ViewPager pager) {
@@ -203,28 +204,21 @@ public class CategoryTabStrip extends HorizontalScrollView {
             }
         }
 
-        i = canvas.save();
-        int top = getScrollX();
-        int height = getHeight();
-        int width = getWidth();
-        canvas.translate((float) top, 0.0f);
-        if (left_edge == null || top <= 0) {
-            if (right_edge == null || top >= getScrollRange()) {
-                canvas.restoreToCount(i);
-            }
-            right_edge.setBounds(width - right_edge.getIntrinsicWidth(), 0, width, height);
-            right_edge.draw(canvas);
-            canvas.restoreToCount(i);
-        }
-        left_edge.setBounds(0, 0, left_edge.getIntrinsicWidth(), height);
-        left_edge.draw(canvas);
-        if (right_edge == null || top >= getScrollRange()) {
-            canvas.restoreToCount(i);
-        }
-        right_edge.setBounds(width - right_edge.getIntrinsicWidth(), 0, width, height);
-        right_edge.draw(canvas);
-        canvas.restoreToCount(i);
     }
+
+    @Override
+    protected boolean overScrollBy(int deltaX, int deltaY, int scrollX, int scrollY, int scrollRangeX, int scrollRangeY, int maxOverScrollX, int maxOverScrollY, boolean isTouchEvent) {
+        int newDeltaX = deltaX;
+        int delta = (int) (deltaX * SCROLL_RATIO);
+        if ((scrollX + deltaX) == 0 || (scrollX - scrollRangeX + deltaX) == 0) {
+            newDeltaX = deltaX;     //回弹最后一次滚动，复位
+        } else {
+            newDeltaX = delta;      //增加阻尼效果
+        }
+        return super.overScrollBy(newDeltaX, deltaY, scrollX, scrollY, scrollRangeX,
+                scrollRangeY, MAX_SCROLL, maxOverScrollY, isTouchEvent);
+    }
+
 
     private class PageListener implements OnPageChangeListener {
 
