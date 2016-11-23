@@ -5,6 +5,7 @@
     <string name="tab_title_show">秀场</string>
     <string name="tab_title_favorite">兴趣</string>
     <string name="tab_mine">我</string>
+    <string name="unit">￥</string>
 
     <array name="actions_labels">
         <item>推荐</item>

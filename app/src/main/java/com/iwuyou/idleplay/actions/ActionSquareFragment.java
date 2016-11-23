@@ -45,8 +45,6 @@ public class ActionSquareFragment extends BaseFragment {
             mActionLabels.add(pair);
         }
         mAdapter.notifyDataSetChanged();
-        mViewPager = (ViewPager) view.findViewById(R.id.view_pager);
-        mCategoryStrip = (CategoryTabStrip) view.findViewById(R.id.category_strip);
         mViewPager.setAdapter(mAdapter);
         mCategoryStrip.setViewPager(mViewPager);
     }
