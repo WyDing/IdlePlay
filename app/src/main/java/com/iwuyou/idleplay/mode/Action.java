@@ -102,6 +102,10 @@ public class Action implements Parcelable {
     public Action() {
     }
 
+    public Action(int type) {
+        this.type = type;
+    }
+
     public Action(String name, String startLabel, String address, List<String> imageList, double money, String imageDetailUrl, int type) {
         this.name = name;
         this.startLabel = startLabel;

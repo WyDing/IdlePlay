@@ -49,6 +49,7 @@ public class ActionsFragment extends BaseFragment {
         mAdapter = new ActionsAdapter(activity, mActions);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(activity));
         mRecyclerView.setAdapter(mAdapter);
+        mActions.add(new Action(Action.SORT));
         mActions.add(new Action("性价比专线-四明山大竹海-徒步浙东小九寨2日游>门票全含，宿五星，性价比爆棚",
                 "周一", "七里庄地铁站", null, 30.5,
                 "http://m.tuniucdn.com/filebroker/cdn/prd/ed/2e/ed2e4825aeeced53d28266b2c8bc1b4b_w450_h300_c1_t0_w500_h280_c1_t0.jpg",

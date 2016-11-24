@@ -5,17 +5,19 @@
     <string name="tab_title_show">秀场</string>
     <string name="tab_title_favorite">兴趣</string>
     <string name="tab_mine">我</string>
+    <string name="normal">默认</string>
+    <string name="all_actions">全部活动</string>
     <string name="unit">￥</string>
 
     <array name="actions_labels">
-        <item>推荐</item>
-        <item>社会</item>
-        <item>订阅</item>
-        <item>视频</item>
-        <item>健康</item>
-        <item>体育</item>
-        <item>科技</item>
-        <item>汽车</item>
-        <item>娱乐</item>
+        <item>精选</item>
+        <item>益智游戏</item>
+        <item>周边户外</item>
+        <item>运动</item>
+        <item>景点</item>
+        <item>沙龙讲座</item>
+        <item>派对交友</item>
+        <item>体验</item>
+        <item>自驾游</item>
     </array>
 </resources>
