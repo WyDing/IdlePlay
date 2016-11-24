@@ -46,11 +46,17 @@ public class ActionsFragment extends BaseFragment {
     public void init(View view) {
         activity = getActivity();
         mActions = new ArrayList<>();
-        mAdapter = new ActionsAdapter(activity,mActions);
+        mAdapter = new ActionsAdapter(activity, mActions);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(activity));
         mRecyclerView.setAdapter(mAdapter);
-        mActions.add(new Action());
-        mActions.add(new Action());
+        mActions.add(new Action("性价比专线-四明山大竹海-徒步浙东小九寨2日游>门票全含，宿五星，性价比爆棚",
+                "周一", "七里庄地铁站", null, 30.5,
+                "http://m.tuniucdn.com/filebroker/cdn/prd/ed/2e/ed2e4825aeeced53d28266b2c8bc1b4b_w450_h300_c1_t0_w500_h280_c1_t0.jpg",
+                Action.BRIEF));
+
+        mActions.add(new Action("宿希尔顿大酒店，含156元双份自助早，赠送价值1588元年夜饭", "周二到周三", "国贸地铁站F口", null,
+                200, "http://m.tuniucdn.com/fb2/t1/G2/M00/07/E7/Cii-TFgsHSGIG5MWAAiS7RergWcAAEdQwKoow4ACJMF906_w450_h300_c1_t0_w500_h280_c1_t0.jpg"
+                , Action.BRIEF));
         mAdapter.notifyDataSetChanged();
     }
 

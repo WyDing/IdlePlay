@@ -8,12 +8,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/bg_item_action_brief"
-        android:orientation="horizontal"
-        android:layout_marginTop="5dp"
         android:layout_marginBottom="5dp"
         android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp">
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/bg_item_action_brief"
+        android:orientation="horizontal">
 
 
         <RelativeLayout
@@ -21,9 +21,10 @@
             android:layout_height="match_parent">
 
             <ImageView
+                android:id="@+id/img_detail"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="#0fff00" />
+                android:scaleType="centerInside" />
 
             <ImageView
                 android:layout_width="wrap_content"
@@ -43,11 +44,11 @@
             android:layout_marginTop="5dp">
 
             <TextView
+                android:id="@+id/text_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ellipsize="end"
                 android:maxLines="2"
-                android:text="美食的诱惑美食的诱惑美食的诱惑美食的诱惑美食的诱惑美食的诱惑"
                 android:textColor="#171172"
                 android:textSize="14sp" />
 
@@ -66,10 +67,10 @@
                     android:src="@drawable/ic_recommend_poi" />
 
                 <TextView
+                    android:id="@+id/text_address"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:text="七里庄地铁站"
                     android:textColor="#a1a1a1"
                     android:textSize="10sp" />
             </LinearLayout>
@@ -89,10 +90,10 @@
                     android:src="@drawable/ic_recommend_time" />
 
                 <TextView
+                    android:id="@+id/text_start_label"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:maxLines="1"
-                    android:text="下周一开始"
                     android:textColor="#a1a1a1"
                     android:textSize="10sp" />
 
@@ -113,9 +114,9 @@
                     android:textSize="10sp" />
 
                 <TextView
+                    android:id="@+id/text_money"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="23.5"
                     android:textColor="#ff5453"
                     android:textSize="10sp" />
 
