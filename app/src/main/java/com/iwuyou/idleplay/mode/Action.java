@@ -26,6 +26,7 @@ public class Action implements Parcelable {
     private int type;
     private int state;
     private boolean isLike;
+    private List<ActionLabel> labels;
 
     public String getName() {
         return name;
@@ -99,10 +100,23 @@ public class Action implements Parcelable {
         this.imageDetailUrl = imageDetailUrl;
     }
 
+    public List<ActionLabel> getLabels() {
+        return labels;
+    }
+
+    public void setLabels(List<ActionLabel> labels) {
+        this.labels = labels;
+    }
+
     public Action() {
     }
 
     public Action(int type) {
+        this.type = type;
+    }
+
+    public Action(List<ActionLabel> labels, int type) {
+        this.labels = labels;
         this.type = type;
     }
 

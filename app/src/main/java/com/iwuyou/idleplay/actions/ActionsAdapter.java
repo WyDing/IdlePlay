@@ -1,12 +1,15 @@
 package com.iwuyou.idleplay.actions;
 
 import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.iwuyou.idleplay.R;
 import com.iwuyou.idleplay.mode.Action;
+import com.iwuyou.idleplay.mode.ActionLabel;
 import com.iwuyou.idleplay.utils.ImageLoader;
 import com.iwuyou.idleplay.view.swipe.BaseRecyclerViewAdapter;
 import com.iwuyou.idleplay.view.swipe.BaseViewHolder;
@@ -26,6 +29,7 @@ import static com.iwuyou.idleplay.mode.Action.SORT;
 
 public class ActionsAdapter extends BaseRecyclerViewAdapter<Action> {
 
+
     public ActionsAdapter(Context context, List<Action> data) {
         super(context, data);
     }
@@ -37,8 +41,8 @@ public class ActionsAdapter extends BaseRecyclerViewAdapter<Action> {
                 return new ViewHolderBrief(realContentView);
             case SORT:
                 return new ViewHolderSort(realContentView);
-//            case FORM:
-//                return R.layout.item_action_form;
+            case FORM:
+                return new ViewHolderFrom(realContentView);
         }
         return new ViewHolderBrief(realContentView);
     }
@@ -59,6 +63,31 @@ public class ActionsAdapter extends BaseRecyclerViewAdapter<Action> {
             case SORT:
                 break;
             case FORM:
+                ViewHolderFrom viewHolderFrom = (ViewHolderFrom) holder;
+                LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+                layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+                viewHolderFrom.recyclerView.setLayoutManager(layoutManager);
+                List<ActionLabel> labels = getItemData(position).getLabels();
+                if (null != labels && labels.size() != 0) {
+                    ActionLabelAdapter adapter = new ActionLabelAdapter(mContext, labels);
+                    if (null != onFromItemClickListener) {
+                        adapter.setOnItemClickListener(new ActionLabelAdapter.OnItemClickListener<ActionLabel>() {
+                            @Override
+                            public void onItemClick(View view, int position, ActionLabel model) {
+                                onFromItemClickListener.onItemClick(view, position, model);
+                            }
+
+                            @Override
+                            public void onItemLongClick(View view, int position, ActionLabel model) {
+                                onFromItemClickListener.onItemLongClick(view, position, model);
+                            }
+                        });
+                    }
+                    viewHolderFrom.recyclerView.setAdapter(adapter);
+
+                } else {
+                    viewHolderFrom.recyclerView.setVisibility(View.GONE);
+                }
                 break;
         }
 
@@ -103,7 +132,7 @@ public class ActionsAdapter extends BaseRecyclerViewAdapter<Action> {
     }
 
 
-    static class ViewHolderSort extends BaseViewHolder{
+    static class ViewHolderSort extends BaseViewHolder {
         @BindView(R.id.img_arrow)
         ImageView imgArrow;
         @BindView(R.id.text_sort)
@@ -113,5 +142,27 @@ public class ActionsAdapter extends BaseRecyclerViewAdapter<Action> {
             super(view);
             ButterKnife.bind(this, view);
         }
+    }
+
+    static class ViewHolderFrom extends BaseViewHolder {
+        @BindView(R.id.recycler_view)
+        RecyclerView recyclerView;
+
+        ViewHolderFrom(View view) {
+            super(view);
+            ButterKnife.bind(this, view);
+        }
+    }
+
+    private OnFromItemClickListener onFromItemClickListener;
+
+    public void setOnFromItemClickListener(OnFromItemClickListener onFromItemClickListener) {
+        this.onFromItemClickListener = onFromItemClickListener;
+    }
+
+    public static interface OnFromItemClickListener {
+        void onItemClick(View view, int position, ActionLabel model);
+
+        void onItemLongClick(View view, int position, ActionLabel model);
     }
 }

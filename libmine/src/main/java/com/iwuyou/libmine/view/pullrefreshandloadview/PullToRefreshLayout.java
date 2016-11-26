@@ -116,6 +116,8 @@ public class PullToRefreshLayout extends RelativeLayout {
 
     private Context mContext;
 
+    private boolean isRefresh;
+
     private String pullDownText = getContext().getString(R.string.pull_to_refresh);
     private String pullUpText = getContext().getString(R.string.pullup_to_load);
     private String pullInitText = getContext().getString(R.string.release_to_refresh);
@@ -151,6 +153,7 @@ public class PullToRefreshLayout extends RelativeLayout {
             if (pullDownY < 0) {
                 // 已完成回弹
                 pullDownY = 0;
+                isRefresh = false;
                 pullView.clearAnimation();
                 // 隐藏下拉头时有可能还在刷新，只有当前状态不是正在刷新时才改变状态
                 if (state != REFRESHING && state != LOADING)
@@ -207,6 +210,7 @@ public class PullToRefreshLayout extends RelativeLayout {
         LinearInterpolator lir = new LinearInterpolator();
         rotateAnimation.setInterpolator(lir);
         refreshingAnimation.setInterpolator(lir);
+        isRefresh = true;
     }
 
     private void hide() {
@@ -398,6 +402,7 @@ public class PullToRefreshLayout extends RelativeLayout {
                     if ((pullDownY > 0
                             || (((Pullable) pullableView).canPullDown()
                             && canPullDown && state != LOADING) && openPullDown)) {
+                        isRefresh = true;
                         // 可以下拉，正在加载时不能下拉
                         // 对实际滑动距离做缩小，造成用力拉的感觉
                         pullDownY = pullDownY + (ev.getY() - lastY) / radio;
@@ -687,4 +692,11 @@ public class PullToRefreshLayout extends RelativeLayout {
     }
 
 
+    public boolean isRefresh() {
+        return isRefresh;
+    }
+
+    public void setRefresh(boolean refresh) {
+        isRefresh = refresh;
+    }
 }
